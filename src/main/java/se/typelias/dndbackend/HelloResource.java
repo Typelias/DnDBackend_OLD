@@ -22,6 +22,7 @@ public class HelloResource {
     @Autowired
     private UserDetailsService userDetailsService;
 
+
     @Autowired
     private JwtUtil jwtTokenUtil;
 
@@ -30,10 +31,10 @@ public class HelloResource {
         return "Hello world";
     }
 
-    @RequestMapping("/username")
-    public String username(@RequestHeader(name = "Authorization") String token) {
+    @RequestMapping("/user")
+    public UserDetails username(@RequestHeader(name = "Authorization") String token) {
         token = token.substring(7);
-        return jwtTokenUtil.extractUsername(token);
+        return userDetailsService.loadUserByUsername(jwtTokenUtil.extractUsername(token));
     }
 
     @RequestMapping("/check/{token}")
