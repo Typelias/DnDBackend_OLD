@@ -9,7 +9,7 @@ import se.typelias.dndbackend.UserRepository;
 import se.typelias.dndbackend.models.MyUserDetails;
 import se.typelias.dndbackend.models.User;
 
-import java.util.ArrayList;
+
 import java.util.Optional;
 
 @Service

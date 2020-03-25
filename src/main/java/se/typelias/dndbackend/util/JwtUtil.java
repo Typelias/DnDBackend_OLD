@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 @Service
 public class JwtUtil {
-    private String SECRET_KEY = "secret";
+    private String SECRET_KEY = "LucasArEnLitenHoeSaNiVet";
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -36,6 +36,7 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", userDetails.getAuthorities());
         return createToken(claims, userDetails.getUsername());
     }
 

@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 import se.typelias.dndbackend.models.AuthenticationRequest;
 import se.typelias.dndbackend.models.AuthenticationResponse;
+import se.typelias.dndbackend.models.User;
 import se.typelias.dndbackend.util.JwtUtil;
 
 @CrossOrigin(origins="/**")
@@ -21,6 +22,9 @@ public class HelloResource {
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @Autowired
@@ -58,4 +62,10 @@ public class HelloResource {
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
 
     }
+
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
+    public void createUser(@RequestBody User user) {
+        userRepository.save(user);
+    }
+
 }

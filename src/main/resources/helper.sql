@@ -12,4 +12,5 @@ INSERT INTO User VALUES (2,'typelias','pass',TRUE, 'ROLE_USER');
 INSERT INTO User VALUES (3 ,TRUE ,'pass', 'ROLE_USER', 'user');
 
 /*DND*/
-INSERT INTO User VALUE (1,'pass','typelias')
+INSERT INTO User VALUE (1,'pass','admin','typelias');
+INSERT INTO User VALUE (2,'pass','user','greger');
